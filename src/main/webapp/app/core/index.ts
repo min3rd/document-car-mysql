@@ -10,3 +10,5 @@ export * from './login/login-modal.service';
 export * from './login/login.service';
 export * from './user/user.service';
 export * from './core.module';
+export * from './register/register-modal.service';
+export * from './car/car-update-modal.service';

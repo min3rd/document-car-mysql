@@ -6,6 +6,10 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { ICar } from 'app/shared/model/car.model';
 import { Principal } from 'app/core';
 import { CarService } from './car.service';
+import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { CarUpdateModalService } from 'app/core/car/car-update-modal.service';
+import { CarViewModalComponent } from 'app/shared';
+import { CarViewModalService } from 'app/core/car/car-view-modal.service';
 
 @Component({
     selector: 'jhi-car',
@@ -15,12 +19,14 @@ export class CarComponent implements OnInit, OnDestroy {
     cars: ICar[];
     currentAccount: any;
     eventSubscriber: Subscription;
-
+    modalRef: NgbModalRef;
     constructor(
         private carService: CarService,
         private jhiAlertService: JhiAlertService,
         private eventManager: JhiEventManager,
-        private principal: Principal
+        private principal: Principal,
+        private carUpdateModalService: CarUpdateModalService,
+        private carViewModalService: CarViewModalService
     ) {}
 
     loadAll() {
@@ -50,6 +56,16 @@ export class CarComponent implements OnInit, OnDestroy {
 
     registerChangeInCars() {
         this.eventSubscriber = this.eventManager.subscribe('carListModification', response => this.loadAll());
+    }
+    openCreate(): void {
+        this.modalRef = this.carUpdateModalService.open();
+    }
+    openUpdate(car: ICar): void {
+        this.modalRef = this.carUpdateModalService.open(car);
+    }
+
+    openView(car: ICar): void {
+        this.modalRef = this.carViewModalService.open(car);
     }
 
     private onError(errorMessage: string) {
