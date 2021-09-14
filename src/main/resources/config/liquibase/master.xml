@@ -8,6 +8,7 @@
     <include file="config/liquibase/changelog/20181213134602_added_entity_Car.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181213134603_added_entity_Document.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20181213134604_added_entity_Content.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210913031901_added_entity_DocumentContentCar.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20181213134603_added_entity_constraints_Document.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
