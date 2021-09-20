@@ -9,7 +9,9 @@ import {
     HasAnyAuthorityDirective,
     JhiRegisterModalComponent,
     CarUpdateModalComponent,
-    CarViewModalComponent
+    CarViewModalComponent,
+    ContentUpdateModalComponent,
+    DocumentUpdateModalComponent
 } from './';
 
 @NgModule({
@@ -20,17 +22,27 @@ import {
         CarUpdateModalComponent,
         HasAnyAuthorityDirective,
         CarViewModalComponent,
-        CarViewModalComponent
+        CarViewModalComponent,
+        ContentUpdateModalComponent,
+        DocumentUpdateModalComponent
     ],
     providers: [{ provide: NgbDateAdapter, useClass: NgbDateMomentAdapter }],
-    entryComponents: [JhiLoginModalComponent, JhiRegisterModalComponent, CarUpdateModalComponent, CarViewModalComponent],
+    entryComponents: [
+        JhiLoginModalComponent,
+        JhiRegisterModalComponent,
+        CarUpdateModalComponent,
+        ContentUpdateModalComponent,
+        DocumentUpdateModalComponent
+    ],
     exports: [
         DocumentCarMysqlSharedCommonModule,
         JhiLoginModalComponent,
         JhiRegisterModalComponent,
         CarUpdateModalComponent,
         HasAnyAuthorityDirective,
-        CarViewModalComponent
+        CarViewModalComponent,
+        ContentUpdateModalComponent,
+        DocumentUpdateModalComponent
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

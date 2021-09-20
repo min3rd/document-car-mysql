@@ -11,7 +11,7 @@ import { Car, ICar } from '../model/car.model';
 })
 export class CarUpdateModalComponent implements OnInit, AfterViewInit {
     @Input()
-    inputCar;
+    inputCar: ICar;
     car: ICar;
     isSaving: boolean;
     files: FileList;
@@ -23,8 +23,8 @@ export class CarUpdateModalComponent implements OnInit, AfterViewInit {
         this.isSaving = false;
         this.car = new Car();
         if (this.inputCar !== undefined) {
-            // this.car = { ...this.inputCar };
-            this.car = this.inputCar;
+            this.car = { ...this.inputCar };
+            // this.car = this.inputCar;
         }
     }
     setCar(car: ICar): void {
@@ -51,9 +51,11 @@ export class CarUpdateModalComponent implements OnInit, AfterViewInit {
     private onSaveSuccess() {
         this.isSaving = false;
         this.activeModal.dismiss('save');
+        window.location.reload();
     }
 
     private onSaveError() {
         this.isSaving = false;
+        window.location.reload();
     }
 }

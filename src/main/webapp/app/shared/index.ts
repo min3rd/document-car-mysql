@@ -8,6 +8,8 @@ export * from './login/login.component';
 export * from './register/register.component';
 export * from './car-update-modal/car-update-modal.component';
 export * from './car-view-modal/car-view-modal.component';
+export * from './content-update-modal/content-update-modal.component';
+export * from './document-update-modal/document-update-modal.component';
 export * from './util/request-util';
 export * from './shared-libs.module';
 export * from './shared-common.module';

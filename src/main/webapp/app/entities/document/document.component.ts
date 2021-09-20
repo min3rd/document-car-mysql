@@ -6,6 +6,8 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { IDocument } from 'app/shared/model/document.model';
 import { Principal } from 'app/core';
 import { DocumentService } from './document.service';
+import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { DocumentUpdateModalService } from 'app/core/document/document-update-modal.service';
 
 @Component({
     selector: 'jhi-document',
@@ -15,12 +17,13 @@ export class DocumentComponent implements OnInit, OnDestroy {
     documents: IDocument[];
     currentAccount: any;
     eventSubscriber: Subscription;
-
+    modalRef: NgbModalRef;
     constructor(
         private documentService: DocumentService,
         private jhiAlertService: JhiAlertService,
         private eventManager: JhiEventManager,
-        private principal: Principal
+        private principal: Principal,
+        private documentUpdateModalService: DocumentUpdateModalService
     ) {}
 
     loadAll() {
@@ -54,5 +57,12 @@ export class DocumentComponent implements OnInit, OnDestroy {
 
     private onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
+    }
+
+    openCreate() {
+        this.modalRef = this.documentUpdateModalService.open();
+    }
+    openEdit(document: IDocument) {
+        this.modalRef = this.documentUpdateModalService.open(document);
     }
 }

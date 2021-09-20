@@ -6,6 +6,8 @@ import { JhiEventManager, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 import { IContent } from 'app/shared/model/content.model';
 import { Principal } from 'app/core';
 import { ContentService } from './content.service';
+import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { ContentUpdateModalService } from 'app/core/content/content-update-modal.service';
 
 @Component({
     selector: 'jhi-content',
@@ -15,13 +17,14 @@ export class ContentComponent implements OnInit, OnDestroy {
     contents: IContent[];
     currentAccount: any;
     eventSubscriber: Subscription;
-
+    modalRef: NgbModalRef;
     constructor(
         private contentService: ContentService,
         private jhiAlertService: JhiAlertService,
         private dataUtils: JhiDataUtils,
         private eventManager: JhiEventManager,
-        private principal: Principal
+        private principal: Principal,
+        private contentModalService: ContentUpdateModalService
     ) {}
 
     loadAll() {
@@ -60,7 +63,12 @@ export class ContentComponent implements OnInit, OnDestroy {
     registerChangeInContents() {
         this.eventSubscriber = this.eventManager.subscribe('contentListModification', response => this.loadAll());
     }
-
+    openCreate() {
+        this.modalRef = this.contentModalService.open();
+    }
+    openEdit(content: IContent) {
+        this.modalRef = this.contentModalService.open(content);
+    }
     private onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
     }
