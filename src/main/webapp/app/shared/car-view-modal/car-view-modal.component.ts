@@ -8,7 +8,7 @@ import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { CarUpdateModalService } from 'app/core';
 
 @Component({
-    selector: 'jhi-car-detail',
+    selector: 'jhi-car-detail-modal',
     templateUrl: './car-view-modal.component.html'
 })
 export class CarViewModalComponent implements OnInit, AfterViewInit {

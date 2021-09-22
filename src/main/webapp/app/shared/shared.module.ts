@@ -22,7 +22,6 @@ import {
         CarUpdateModalComponent,
         HasAnyAuthorityDirective,
         CarViewModalComponent,
-        CarViewModalComponent,
         ContentUpdateModalComponent,
         DocumentUpdateModalComponent
     ],
@@ -31,6 +30,7 @@ import {
         JhiLoginModalComponent,
         JhiRegisterModalComponent,
         CarUpdateModalComponent,
+        CarViewModalComponent,
         ContentUpdateModalComponent,
         DocumentUpdateModalComponent
     ],
